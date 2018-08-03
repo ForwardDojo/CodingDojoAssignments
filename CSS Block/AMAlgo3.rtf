@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1. function a(x,y)\{\
+  return 5;\
+\}\
+console.log(a(5,5))\
+\
+\
+answer: 5 \
+\
+2. \
+\
+\
+function a(x,y)\{\
+    z = [ ]\
+    z.push(x);\
+    z.push(y);\
+    z.push(5);\
+    console.log(z);\
+    return z;\
+\}\
+b = a(2,2)\
+console.log(b);\
+console.log(a(6,8));\
+\
+\
+answer: \
+b=[2, 2, 5]\
+[2,2,5]\
+ [6,8,5]\
+\
+3. function a(x)\{\
+   z = [];\
+   z.push(x);\
+   z.pop();\
+   z.push(x);\
+   z.push(x);\
+   return z;\
+\}\
+y = a(2);\
+y.push(5);\
+console.log(y);\
+\
+answer: 2, 2, 5\
+\
+4. function a(x)\{\
+   if(x[0] <x [1]) \{\
+      return true;\
+   \}\
+   else \{\
+      return false;\
+   \}\
+\}\
+b = a([2,3,4,5])\
+console.log(b);\
+\
+answer: true\
+\
+5. function a(x)\{\
+    for(var i=0; i<x.length; i++)\{\
+      if(x[i] > 0)\{\
+           x[i] = \'93Coding\'94\
+      \}\
+  \}\
+\}\
+console.log(a([1,2,3,4]))\
+\
+answer: coding, coding, coding, coding\
+\
+6. \
+\
+function a(x)\{\
+    for(var i=0; i<x.length; i++)\{\
+      if(x[i] > 5)\{\
+           x[i] = \'93Coding\'94\
+      \}\
+      else if(x[i] < 0)\{\
+           x[i] = \'93Dojo\'94\
+      \}\
+  \}\
+\}\
+console.log(a([5,7,-1,4]))\
+answer: [ 5, coding, dojo, 4]\
+\
+7. function a(x)\{\
+   if(x[0] > x[1]) \{\
+    return x[1];\
+   \}\
+   return 10;\
+\}\
+b = a([5,10])\
+console.log(b);\
+\
+answer: 10\
+\
+8. function sum(x)\{\
+    sum = 0;\
+    for(var i=0; i<x.length; i++)\{\
+       sum = sum + x[i];\
+       console.log(sum);\
+    \}\
+    return sum;\
+\}\
+answer: 0 \
+}
