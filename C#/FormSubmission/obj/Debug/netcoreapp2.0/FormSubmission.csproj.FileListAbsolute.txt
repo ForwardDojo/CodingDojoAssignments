@@ -1,0 +1,11 @@
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/bin/Debug/netcoreapp2.0/FormSubmission.deps.json
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/bin/Debug/netcoreapp2.0/FormSubmission.runtimeconfig.json
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/bin/Debug/netcoreapp2.0/FormSubmission.runtimeconfig.dev.json
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/bin/Debug/netcoreapp2.0/FormSubmission.dll
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/bin/Debug/netcoreapp2.0/FormSubmission.pdb
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.csproj.CoreCompileInputs.cache
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.AssemblyInfoInputs.cache
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.AssemblyInfo.cs
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.dll
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.pdb
+/Users/amandasitko/Desktop/CD_Assignments/C#/FormSubmission/obj/Debug/netcoreapp2.0/FormSubmission.csprojResolveAssemblyReference.cache
