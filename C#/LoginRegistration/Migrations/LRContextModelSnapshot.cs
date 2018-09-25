@@ -20,7 +20,7 @@ namespace LoginRegistration.Migrations
 
             modelBuilder.Entity("LoginRegistration.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreatedAt");
@@ -35,7 +35,7 @@ namespace LoginRegistration.Migrations
 
                     b.Property<DateTime>("UpdatedAt");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });

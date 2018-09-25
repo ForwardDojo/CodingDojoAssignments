@@ -48,7 +48,9 @@ public class HomeController : Controller
             }
             else
             {
-                HttpContext.Session.SetInt32("Id", usercheck.Id);
+                var activeuser = _context.Users.SingleOrDefault(user => user.Email ==loginemail);
+                HttpContext.Session.SetString("Loggedinuser", activeuser.FirstName + " " + activeuser.LastName);
+                HttpContext.Session.SetInt32("UserId", usercheck.UserId);
                 return RedirectToAction("Success");
             }
         }
@@ -79,7 +81,11 @@ public class HomeController : Controller
                 _context.Add(AddUserinDB);
                 _context.SaveChanges();
                 AddUserinDB = _context.Users.SingleOrDefault(user => user.Email == AddUserinDB.Email);
-                HttpContext.Session.SetInt32("Id", AddUserinDB.Id);
+
+                var activeuser = _context.Users.SingleOrDefault(user => user.Email ==adduser.Email);
+                HttpContext.Session.SetString("Loggedinuser", activeuser.FirstName + " " + activeuser.LastName);
+
+                HttpContext.Session.SetInt32("UserId", AddUserinDB.UserId);
                 return RedirectToAction ("Success");
             }
             else
@@ -92,6 +98,7 @@ public class HomeController : Controller
         [Route("Success")]
         public IActionResult Success() 
         {
+            ViewBag.Loggedinuser = HttpContext.Session.GetString("Loggedinuser");
             return View("Success");
         }
 
