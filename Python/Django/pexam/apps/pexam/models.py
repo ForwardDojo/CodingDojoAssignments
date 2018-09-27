@@ -60,7 +60,7 @@ class Wish(models.Model):
     item= models.CharField(max_length=100)
     description= models.CharField(max_length=255)
     granted= models.BooleanField(default= False)
-    item_id = models.ForeignKey(User, related_name="Wish")
+    item_id = models.ForeignKey(User, related_name="Wish", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects= UserManager()

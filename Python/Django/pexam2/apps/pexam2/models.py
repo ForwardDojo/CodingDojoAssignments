@@ -70,7 +70,7 @@ class Trip(models.Model):
     dest = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
     # granted = models.BooleanField(default= False)
-    created_by = models.ForeignKey(User, related_name="Trip")
+    created_by = models.ForeignKey(User, related_name="Trip", on_delete=models.CASCADE)
     #USED TO BE TRIP ID 
 
     start_date = models.DateField(null= True)
@@ -80,8 +80,8 @@ class Trip(models.Model):
     objects = UserManager()
 
 class Join(models.Model):
-    user = models.ForeignKey(User, related_name="Joining")
-    trip = models.ForeignKey(Trip, related_name= "Joining")
+    user = models.ForeignKey(User, related_name="Joining", on_delete=models.CASCADE)
+    trip = models.ForeignKey(Trip, related_name= "Joining", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = UserManager()

@@ -58,14 +58,14 @@ class User(models.Model):
 class Quote(models.Model):
     quote= models.CharField(max_length= 255)
     author= models.CharField(max_length= 100)
-    created_by = models.ForeignKey(User, related_name="Quote")
+    created_by = models.ForeignKey(User, related_name="Quote", on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects= UserManager()
 
 class Join(models.Model):
-    liked_by= models.ForeignKey(User, related_name= "join")
+    liked_by= models.ForeignKey(User, related_name= "join",  on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
