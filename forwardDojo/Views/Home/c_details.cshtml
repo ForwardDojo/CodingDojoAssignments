@@ -1,0 +1,116 @@
+@model Job
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/stylesMyPage.css"/>
+<style>
+    #userName{
+        margin-left: 20px;
+    }
+    #welcome{
+        color: black;
+        text-decoration-color: black;
+    }   
+    * {
+        color: black;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Dashboard">ForwardDojo </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/MyPage">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/Logout">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="myInput" type="text" placeholder="Search..">
+                <div id="userName">@ViewBag.theUser</div>
+            </form>
+        </div>
+    </nav>
+
+		<div class="container">
+			<br><br><br><br>
+			<header class="heading"> Login</header><hr></hr>
+			<div class="row ">
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-xs-15">
+							<label id="regErrorsLong">@ViewBag.LogErrors</label><br>
+						</div>
+					</div>
+				</div>
+					
+				<form asp-action="Login" asp-controller="Home" method="POST">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-xs-3">
+								<label class="mail" >Your Email :</label></div>
+							<div class="col-xs-8">	 
+								<input type="email" name="Email"  id="email"placeholder="Email" value="mdchaff@gmail.com" class="form-control" ><br>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-xs-3">
+								<label class="pass">Password :</label>
+							</div>
+							<div class="col-xs-8">
+								<input type="password" name="Password" id="password" placeholder="Password" value="Promise1!" class="form-control"><br>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div class="col-sm-12">
+							<input type="submit" class="btn btn-warning" value="Login">
+								<br>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+    <div class='container-fluid'>
+        <div class='row justify-content-between'>
+
+            <div class="col"></div>
+            <div class="col-10">
+                <h2 id="welcome">Company: @ViewBag.company</h2>
+                <h2 id="welcome">Position: @ViewBag.position</h2>
+                <h2 id="welcome">Job Description: @ViewBag.description</h2>
+                <h2 id="welcome">Company URL: <a href=" @ViewBag.url"> @ViewBag.url </a></h2>
+                <h2 id="welcome">Date Posted: @ViewBag.date</h2>
+
+
+                <!-- <h2 id="welcome">Company: @ViewBag.</h2>
+                <h2 id="welcome">Company: @ViewBag.</h2> -->
+                <form asp-action="addJob" asp-controller="Home" method="POST">
+                    <input type="hidden" asp-for="epoch" name="epoch" value=@ViewBag.epoch/>
+                    <input type="hidden" asp-for="date" name="date" value=@ViewBag.date/>
+                    <input type="hidden" asp-for="company" name="company" value=@ViewBag.company/>
+                    <input type="hidden" asp-for="position" name="position" value=@ViewBag.position/>
+                    <input type="hidden" asp-for="description" name="description" value=@ViewBag.description/>
+                    <input type="hidden" asp-for="url" name="url" value=@ViewBag.url> 
+                    <input type="submit" class="btn btn-warning" value="Add Job">
+                </form>
+
+
+            </div>
+            <div class="col"></div>
+
+    </div>
+</div>
+</body>

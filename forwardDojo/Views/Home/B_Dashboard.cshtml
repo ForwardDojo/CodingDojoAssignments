@@ -1,0 +1,286 @@
+@model Job
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image:url(http://sf.co.ua/15/04/wallpaper-1c3263.jpg);
+            /* background-image: url("docks.jpg"); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+        #myWrapper{
+            height: 80%;
+            width: 80%;
+            /* background-color: rgb(83, 83, 202); */
+            margin: 50px auto;
+            text-align: center;
+            opacity: 0.8;
+            box-shadow: 2px 5px 5px 0px #eee;
+            border-color: grey;
+            /* border-style: 1px solid grey; */
+            border-radius: 25px
+        }
+        h1{
+            color: whitesmoke;
+        }
+    </style>
+    <style>
+        table{
+            height: 100%;
+            width:100%;
+            table-layout: fixed;
+        }
+        .tbl-header{
+            background-color: rgba(255,255,255,0.3);
+        }
+        .tbl-content{
+            height:300px;
+            overflow-x:auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        th{
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        td{
+            padding: 15px;
+            text-align: left;
+            vertical-align:middle;
+            font-weight: 300;
+            font-size: 12px;
+            color: #fff;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+        }
+    </style>
+    
+    
+    
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</head>
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/stylesDash.css"/> -->
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Dashboard">ForwardDojo </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/MyPage">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/Logout">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="myInput" type="text" placeholder="Search..">
+                <div id="userName">@ViewBag.theUser</div>
+            </form>
+        </div>
+    </nav>
+
+
+    <div id="myWrapper">
+        <section>
+            <!--for demo wrap-->
+            <br><br><br><br><br>
+            <h1>Available Tech Jobs</h1>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Upload Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody id="myTable">
+                        @foreach(var job in @ViewBag.allJobs) {
+                        <tr>
+                            <th>@job.position</th>
+                            <th>@job.company</th>
+                            <th>@job.date</th>
+                            <td>
+                                <a href="Details"><button type="button" class="btn btn-warning">View Job</button></a>
+                                <a href="@job.url"><button type="button" class="btn btn-success">Apply</button></a>
+                                <a href="Delete/@job.Job_ID"><button type="button" class="btn btn-warning">Remove from List</button></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+
+
+
+
+
+<!-- <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Dashboard">ForwardDojo </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/MyPage">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/Logout">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="myInput" type="text" placeholder="Search..">
+                <div id="userName">@ViewBag.theUser</div>
+            </form>
+        </div>
+    </nav>
+    <h1 id="welcome">Welcome</h1>
+    <section>
+        <h1>Fixed Table header</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Date</th>
+                        <th>Apply</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody id="myTable">
+                    @foreach (var item in ViewBag.allJobs){
+                        <tr>
+                            <th>@item["company"]</th>
+                            <th>@item["position"]</th>
+                            <th>@item["date"]</th>
+                            <th><a href=@item["url"]>@item["company"]'s Job Posting</a></th>
+                            <th>
+                                <form asp-action="DetailsP" asp-controller="Home" method="POST">
+                                    <input type="hidden" asp-for="slug" name="slug" value=@item["slug"]/>
+                                    <input type="hidden" asp-for="epoch" name="epoch" value=@item["epoch"]/>
+                                    <input type="hidden" asp-for="date" name="date" value=@item["date"]/>
+                                    <input type="hidden" asp-for="company" name="company" value=@item["company"]/>
+                                    <input type="hidden" asp-for="position" name="position" value=@item["position"]/>
+                                    <input type="hidden" asp-for="description" name="description" value=@item["description"]/>
+                                    <input type="hidden" asp-for="url" name="url" value=@item["url"]> 
+                                    <input type="submit" class="btn btn-warning" value="View Job">
+                                </form>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="myWrapper">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Company</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Date Posted</th>
+                    <th scope="col">Job Link</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                @foreach (var item in ViewBag.allJobs){
+                    <tr>
+                        <th>@item["company"]</th>
+                        <th>@item["position"]</th>
+                        <th>@item["date"]</th>
+                        <th><a href=@item["url"]>@item["company"]'s Job Posting</a></th>
+                        <th>
+                            <form asp-action="DetailsP" asp-controller="Home" method="POST">
+                                <input type="hidden" asp-for="slug" name="slug" value=@item["slug"]/>
+                                <input type="hidden" asp-for="epoch" name="epoch" value=@item["epoch"]/>
+                                <input type="hidden" asp-for="date" name="date" value=@item["date"]/>
+                                <input type="hidden" asp-for="company" name="company" value=@item["company"]/>
+                                <input type="hidden" asp-for="position" name="position" value=@item["position"]/>
+                                <input type="hidden" asp-for="description" name="description" value=@item["description"]/>
+                                <input type="hidden" asp-for="url" name="url" value=@item["url"]> 
+                                <input type="submit" class="btn btn-warning" value="View Job">
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body> -->
+  
